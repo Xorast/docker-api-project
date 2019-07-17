@@ -1,0 +1,165 @@
+{% extends "base.html" %}
+
+{% block title %}
+    API - News & Trends
+{% endblock %}
+
+{% block content %}
+    
+    <!--<div class="row">-->
+        
+        <h3 class="my-5 text-center text-danger">[ONGOING DEVELOPMENT - RELEASE DATE: 26 OCT. 2018]</h3>
+        <h1 class="mt-5 text-center">Cyber Security News & Tweets API</h1>
+        <h3 class="my-5 text-muted text-center">SINGLE PAGE APPLICATION (SPA) VERSION : <a href="/spa"> CLICK HERE</a></h3>
+        
+    <!--</div>-->
+    
+    <!--<div class="row mt-5">-->
+        
+        <!--<div class="col-sm-4 offset-sm-4">-->
+        <!--    <div class="form-group">-->
+        <!--        <fieldset>-->
+        <!--            <label class="control-label text-center" for="searchBar">What do you want to know about today ?</label>-->
+        <!--            <input class="form-control" id="searchBar" type="text" placeholder="Keywords, Tags,...">-->
+        <!--        </fieldset>-->
+        <!--    </div>-->
+        <!--</div>-->
+    <!--</div>-->
+    
+    <div class="row mt-5">
+        <div class="col-md-9">
+            <h5>NEWS - Articles from online newspaper</h5>
+        </div>
+    </div>
+    
+    {% for article in articles %}
+    <div class="row mt-3">
+    
+        <div class="col-md-3">
+            <img class="img-fluid rounded" src="{{ article.urlToImage }}">
+        </div>
+        
+        <div class="col-md-9">
+            <div class="row">
+                <div class="col-md-3 text-uppercase">
+                    <strong>Source</strong>
+                </div>
+                <div class="col-md-9">
+                    {{ article.source.name      }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 text-uppercase">
+                    <strong>Author</strong>
+                </div>
+                <div class="col-md-9">
+                    {{ article.author           }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 text-uppercase">
+                    <strong>Title</strong>
+                </div>
+                <div class="col-md-9">
+                    {{ article.title            }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 text-uppercase">
+                    <strong>Description</strong>
+                </div>
+                <div class="col-md-9">
+                    {{ article.description      }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 text-uppercase">
+                    <strong>URL</strong>
+                </div>
+                <div class="col-md-9">
+                    <a href="{{ article.url              }}" target="_blank">{{ article.url              }}</a>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-3 text-uppercase">
+                    <strong>Published at</strong>
+                </div>
+                <div class="col-md-9">
+                    {{ article.publishedAt      }}
+                </div>
+            </div>
+        </div>
+    
+    </div>
+    
+    <hr>
+
+    {% endfor %}
+    
+    <div class="row mt-5">
+        <div class="col-md-9">
+            <h5>TWEETS</h5>
+        </div>
+    </div>
+    
+    {% for tweet in tweets %}
+    
+        {% if tweet.likes > 1000 %}
+        
+            <div class="row mt-3">
+                <div class="col-md-2 offset-md-3 text-uppercase">
+                    <strong>Tweet</strong>
+                </div>
+                <div class="col-md-4">
+                    {{ tweet.text             }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 offset-md-3 text-uppercase">
+                    <strong>Author</strong>
+                </div>
+                <div class="col-md-4">
+                    {{ tweet.username         }}
+                </div>
+            </div>
+           
+            <!--<div class="row">-->
+            <!--    <div class="col-md-2 offset-md-3 text-uppercase">-->
+            <!--        <strong># Retweet</strong>-->
+            <!--    </div>-->
+            <!--    <div class="col-md-4">-->
+            <!--        {{ tweet.retweet_count    }}-->
+            <!--    </div>-->
+            <!--</div>-->
+            <!--<div class="row">-->
+            <!--    <div class="col-md-2 offset-md-3 text-uppercase">-->
+            <!--        <strong># Reply</strong>-->
+            <!--    </div>-->
+            <!--    <div class="col-md-4">-->
+            <!--        {{ tweet.reply_count      }}-->
+            <!--    </div>-->
+            <!--</div>-->
+            <!-- <div class="row mb-3">-->
+            <!--    <div class="col-md-2 offset-md-3 text-uppercase">-->
+            <!--        <strong>Is a retweet ?</strong>-->
+            <!--    </div>-->
+            <!--    <div class="col-md-4">-->
+            <!--        {{ tweet.retweeted        }}-->
+            <!--    </div>-->
+            <!--</div>-->
+            
+            <div class="row mb-3">
+                <div class="col-md-2 offset-md-3 text-uppercase">
+                    <strong>Link</strong>
+                </div>
+                <div class="col-md-4">
+                    <a href="https://www.twitter.com/statuses/{{ tweet.id        }}" target="_blank">Go to Tweet</a>
+                </div>
+            </div>
+            <hr>
+
+        {% endif %}
+                
+    {% endfor %}
+    
+{% endblock %}

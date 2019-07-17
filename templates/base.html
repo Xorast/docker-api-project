@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <!-- CSS -->
+    <link rel="stylesheet"    href="{{ url_for('static', filename='css/bootstrap.css') }}" type="text/css"></link> 
+    <link rel="stylesheet"    href="{{ url_for('static', filename='css/style.css') }}"     type="text/css"></link>
+    
+    <!-- SECURITY -->
+    <!--<script type="text/javascript" src="https://cdn.ywxi.net/js/1.js" async></script>-->
+    
+    <title>{% block title %}{% endblock %}</title>
+    
+</head>
+
+<body>
+    
+    <!--=== CONTAINER ==== -->
+    <div class="container">
+     
+        <!-- ==== HEADER ==== -->
+        <header>
+        {% block header %}{% endblock %}
+        </header>
+        <!-- ==== HEADER - END ==== -->
+        
+         
+        <!-- ==== SECTION ==== -->
+        <section>
+        {% block content %}{% endblock %}
+        </section>
+        <!-- ==== SECTION - END ==== -->
+        
+        
+        <!-- ==== FOOTER ==== -->
+        <footer>
+            
+            <p class="text-center"><u>Credit</u></p>    
+            <p class="text-center">This website use the API from <a href="https://newsapi.org/" target="_blank">newsapi.org</a>.</p>
+            <p class="text-center mt-2"><u>Disclaimer</u></p>
+            <p class="text-center">All elements displayed on this page are coming from external sources and any views, thoughts and opinions expressed in the articles/tweets belong solely to the author of the text and not of the author of this application.</p>    
+       
+        </footer>
+        <!-- ==== FOOTER - END ==== -->
+        
+        <!-- ==== SCRIPTS ==== -->
+        <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/spa.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/ux.js') }}"></script>
+        <!-- ==== SCRIPTS - END ==== -->
+    
+    <!--=== CONTAINER - END ==== -->
+    </div>
+    
+</body>
+
+</html>

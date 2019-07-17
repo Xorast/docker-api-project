@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+
+{% block title %}
+    SPA & API
+{% endblock %}
+
+
+{% block header %}
+
+    <h1 class="mt-5 text-center">SINGLE PAGE APPLICATION</h1>
+    
+{% endblock %}
+
+{% block content %}       
+    
+    <!-- MENU 1 -->
+    
+    <h3 class="mt-5 text-muted text-center">NEWS API</h3>
+    
+    <div class="row mt-3">
+        
+        <div class="col-md-6 offset-md-3">
+                
+                <div class="form-group text-center">
+                        
+                    <label class="control-label text-center" for="searchbar">What do topics do you want to check today ? <br> Get articles from newspapers around the world!</label>
+                    
+                    <div id="wrapper" class="wrapper">
+                    
+                        <div id="sliding-panel" class="bg-warning text-white text-left pt-2">
+                            
+                            <ul>
+                                <li>Use quotes (") for exact match.</li>
+                                <li>Use + symbol for words that must appear (+bitcoin)</li>
+                                <li>Use - symbol for words that must not appear (-bitcoin)</li>
+                                <li>You can use the AND / OR / NOT keywords, and optionally group these with parenthesis. Eg: crypto AND (ethereum OR litecoin) NOT bitcoin.</li>
+                            </ul>
+                            
+                        </div>
+                    
+                        <input class="form-control text-center" name="searchbar" id="searchbar" type="text" placeholder="keywords..." autocomplete="off">
+                
+                        <div id="" class="btn-group btn-group-toggle d-flex" data-toggle="buttons">
+                            
+                            <label class="btn btn-primary flex-fill active">
+                            <input type="radio" name="language" id="" autocomplete="off" value="en" checked=""> English
+                            </label>
+    
+                            <label class="btn btn-primary flex-fill">
+                            <input type="radio" name="language" id="" autocomplete="off" value="es" > Spanish
+                            </label>
+    
+                            <label class="btn btn-primary flex-fill">
+                            <input type="radio" name="language" id="" autocomplete="off" value="fr" > French
+                            </label>
+                            
+                            <label class="btn btn-primary flex-fill">
+                            <input type="radio" name="language" id="" autocomplete="off" value="de" > German
+                            </label>
+                            
+                        </div>
+                        
+                        <div id="" class="btn-group btn-group-toggle d-flex" data-toggle="buttons">
+                            
+                            <label class="btn btn-primary flex-fill active">
+                            <input type="radio" name="sortBy" id="" autocomplete="off" value="publishedAt" checked=""> By Date
+                            </label>
+    
+                            <label class="btn btn-primary flex-fill">
+                            <input type="radio" name="sortBy" id="" autocomplete="off" value="relevancy" > By Revelancy
+                            </label>
+    
+                            <label class="btn btn-primary flex-fill">
+                            <input type="radio" name="sortBy" id="" autocomplete="off" value="popularity" > By Popularity
+                            </label>
+                            
+                        </div>
+                    
+                        <button id="submitArticles" onclick="submitSearch()" class="btn btn-danger btn-block">Go !</button>
+                
+                    </div>
+                
+            </div>
+        </div>
+        
+    </div>
+    
+    <!-- MENU 2 -->
+    <div id="wrapper-2" class="">
+        
+        <h3 class="mt-5 text-muted text-center">TWEETS API - SET TOPICS</h3>
+        
+        <div class="row mt-3 mb-5">
+            
+            <div class="col-md-6 offset-md-3">
+                    
+                <div class="form-group text-center">
+                        
+                    <label class="control-label text-center" for="searchbar">Micro API from a custom MongoDB updated hourly <br>and fed by a custom tweets grabber application.</label>
+                
+                        <div id="" class="btn-group btn-group-toggle d-flex" data-toggle="buttons">
+                            
+                            <label class="btn btn-primary flex-fill active">
+                            <input type="radio" name="topic" id="" autocomplete="off" value="CyberSecurity" checked=""> Cybersecurity
+                            </label>
+                            
+                            <label class="btn btn-primary flex-fill">
+                            <input type="radio" name="topic" id="" autocomplete="off" value="Full_Stack" > Full Stack
+                            </label>
+                        
+                            <label class="btn btn-primary flex-fill">
+                            <input type="radio" name="topic" id="" autocomplete="off" value="IoT" > IoT
+                            </label>
+                            
+                        </div>
+                        <button id="submitTweets" onclick="getTweets()" class="btn btn-danger btn-block">Go !</button>
+                    
+               </div>
+               
+            </div>
+            
+        </div>
+    
+    </div>
+  
+    <!-- Block receiving the data -->
+    <div id="marker" class="pt-3"></div>
+    
+{% endblock %}

@@ -3,7 +3,7 @@ DOCKER - API PROJECT
 
 This project is a personal training to Dockers.
 
-* This project is the 'Docker version' of the personal app 'projet-API'. See the original README file of the project here: [https://github.com/Xorast/project-API](https://github.com/Xorast/project-API).
+* This project is the 'Docker version' of the personal app 'projet-API'. <br>See the original README file of the project here: [https://github.com/Xorast/project-API](https://github.com/Xorast/project-API).
 
 * Deployed on the PaaS Heroku.
 
